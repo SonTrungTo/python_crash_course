@@ -1,2 +1,1 @@
-# Python Crash Course
-
+# Python Crash Course, 3rd Edition
