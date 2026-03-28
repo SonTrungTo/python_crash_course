@@ -1,2 +1,4 @@
-name = "ada loveplace"
+name = "ada lOveplace"
 print(name.title())
+print(name.upper())
+print(name.lower())
