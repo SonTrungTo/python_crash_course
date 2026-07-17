@@ -7,4 +7,4 @@ UPDATES:
     - May 4th, 2026: Still on 4_5.py. We will finish chapter 4.
     - July 10th, 2026: Finished chapter 4.
     - July 13th, 2026: Finished chapter 5 + 6.
-
+    - July 17th, 2026: Finished chapter 7. Chapter 8 + 9 in progress...
