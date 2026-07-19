@@ -1,5 +1,5 @@
 # Sandwiches
-def make_sandwich(*ingredients: tuple[str]) -> None:
+def make_sandwich(*ingredients: str) -> None:
     """Print the list of ingredients requested for the sandwich."""
     print("\nMaking a sandwich with the following ingredients:")
     for ingredient in ingredients:
