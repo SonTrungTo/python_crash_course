@@ -9,24 +9,23 @@ class UserInfo(BaseModel):
 def read_stored_user_info(path: Path) -> UserInfo | None:
     """Read the stored user information from a JSON file."""
     if path.exists():
-        with path.open('r') as file:
-            try:
-                # Parse and check value at the same time.
-                return UserInfo.model_validate_json(file)
-            except ValidationError as e:
-                print(f"Stored data is invalid: {e}")
-                # For symmetry of intent, return None, not just a syntax issue
-                return None
+        try:
+            # Parse and check value at the same time.
+            return UserInfo.model_validate_json(path.read_text())
+        except ValidationError as e:
+            print(f"Stored data is invalid: {e}")
+            # For symmetry of intent, return None, not just a syntax issue
+            return None
     return None
 
 def get_new_user_info(path: Path) -> UserInfo | None:
     """Prompt the user for their information and return it as a dictionary."""
     user_info = UserInfo(
-        name = input("Enter your name: "),
-        age = input("Enter your age: "),     # str coerced to int
-        email = input("Enter your email: "), # raises ValidationError if malformed
+        name = input("Enter your name: ").title(),  # capitalize first letter of each word
+        age = input("Enter your age: "),            # str coerced to int
+        email = input("Enter your email: "),        # raises ValidationError if malformed
     )
-    path.write_text(user_info.model_dump_json(indent=2))
+    path.write_text(user_info.model_dump_json(indent=2) + '\n')
     return user_info
 
 def greet_user():
