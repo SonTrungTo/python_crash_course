@@ -32,11 +32,17 @@ def greet_user():
     """Greet the user based on stored or new information."""
     file_path = Path(__file__).parent / 'user_data' / 'user_info.json'
     user_info = read_stored_user_info(file_path)
-    if user_info:
-        print(f"Welcome back, {user_info.name}!")
-    else:
+    is_correct_user = input(f"Are you {user_info.name}? (y/n): ").strip().lower() if user_info else 'n'
+    if is_correct_user == 'y':
+        message = f"Welcome back, {user_info.name}!"
+        message += f" "
+        message += f"You are {user_info.age} years old and your email is {user_info.email}."
+        print(message)
+    elif is_correct_user == 'n':
         new_user_info = get_new_user_info(file_path)
         print(f"Thank you, {new_user_info.name}! Your information has been saved.")
+    else:
+        print("Invalid input. Please enter 'y' or 'n'.")
 
 if __name__ == "__main__":
     greet_user()
