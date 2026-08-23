@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = ["-ra", "-v"]
+pythonpath = ["."]
+testpaths = [
+    "test_examples",
+    "exercises/test_exercises",
+]
