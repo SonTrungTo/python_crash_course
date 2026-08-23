@@ -1,8 +1,28 @@
 [tool.pytest.ini_options]
 minversion = "9.0"
-addopts = ["-ra", "-v"]
+addopts = [
+    "-ra", "-v",
+    "--cov=exercises",
+    "--cov-report=term-missing",
+    "--cov-report=html"
+]
 pythonpath = ["."]
 testpaths = [
     "test_examples",
     "exercises/test_exercises",
+]
+
+[tool.coverage.run]
+source = ["exercises"]
+branch = true
+omit = [
+    "*/__init__.py",
+    "*/test_*",
+]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
 ]
