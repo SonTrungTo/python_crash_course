@@ -9,3 +9,4 @@ UPDATES:
     - July 13th, 2026: Finished chapter 5 + 6.
     - July 17th, 2026: Finished chapter 7.
     - July 21st, 2026: Finished chapter 8 + 9.
+    - August 23rd, 2026: Finished chapter 10 + 11.
